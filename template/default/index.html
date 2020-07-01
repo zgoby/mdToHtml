@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- CSS only -->
+  <link rel="stylesheet" href="../../theme/normalize.css">
+  <link rel="stylesheet" href="../../theme/default/index.css">
+</head>
+<body>
+  <header>
+    <h1>Typescript</h1>
+    <nav>
+      <ul>
+        <!-- <li><a href="#"></a></li> -->
+        <li><a href="#">Light</a></li>
+        <li><a href="#">Dark</a></li>
+        <li><a href="#">Github</a></li>
+      </ul>
+    </nav>
+  </header>
+  <aside>
+    <ul>
+      <% firstLevelDir.forEach(function(item){ -%>
+        <li><a class="<%= item===active ? 'active' : null %>"><%= item %></a>
+          <ul>
+            <% dirs[item].forEach(function(it){ -%>
+              <li><a href="#"><%= it -%></a></li>
+            <% }) -%>
+          </ul>
+        </li>
+      <% }); -%>
+    </ul>
+  </aside>
+  <section>
+    <div class="content">
+      <div class="mdhtml">
+        <%= mdContent %>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

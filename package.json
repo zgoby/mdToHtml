@@ -1,0 +1,19 @@
+{
+  "name": "mdtohtml",
+  "version": "1.0.0",
+  "description": "一款根据文件夹生成静态博客或者书架的工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zgo",
+  "license": "ISC",
+  "keywords": [
+    "markdown生成html"
+  ],
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "warning": "^4.0.3",
+    "yargs": "^15.3.1"
+  }
+}

@@ -1,3 +1,5 @@
 {
-  "template": "default"
+  "template": "default",
+  "name": "Typescript 指南",
+  "output": "./builds"
 }

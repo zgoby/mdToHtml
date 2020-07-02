@@ -1,35 +1,37 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const path = require('path');
-const warning = require('warning');
 const {verifyExtname} = require('./tools/verification');
 const CONTANTS = require('./tools/contants');
 const MainGenerator = require('./mainGenerator');
 
 const yargs = require('yargs')
-.check((argv)=>{
-  if(!verifyExtname(argv.config, CONTANTS.JSON)) {
-    throw new Error('-C | --config <config> should be '+CONTANTS.JSON)
-  }else{
-    return true;
-  }
-})
+// .check((argv)=>{
+//   if(!verifyExtname(argv.config, CONTANTS.JSON)) {
+//     throw new Error('-C | --config <config> should be '+CONTANTS.JSON)
+//   }else{
+//     return true;
+//   }
+// })
 .option('C', {
   alias : 'config',
-  demand: false,
+  // demand: false,
   describe: 'config.json',
 })
 .argv
 
 let configJson = require('./config.json');
 const { config: configFileUrl, _: folders } = yargs;
-const configBuf = fs.readFileSync(configFileUrl);
-Object.assign(configJson, JSON.parse(configBuf.toString()));
-const { template } = configJson;
+if(configFileUrl){
+  const configBuf = fs.readFileSync(configFileUrl);
+  Object.assign(configJson, JSON.parse(configBuf.toString()));
+}
+const { template, name, output } = configJson;
 
 if (folders.length===1) {
   // var a = fs.statSync(folders[0])
-  const mg = new MainGenerator(folders[0]);
+  const mg = new MainGenerator({folder: folders[0], template, name, output});
   mg.directoryParse();
-  mg.toContents(template);
+  mg.build();
+  // mg.toContents(template);
 }
+  console.log(__dirname,__filename);

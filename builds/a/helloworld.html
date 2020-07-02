@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
+  <title>aaaaa</title>
   <!-- CSS only -->
   <link rel="stylesheet" href="../../theme/normalize.css">
   <link rel="stylesheet" href="../../theme/default/index.css">
@@ -22,21 +22,22 @@
   </header>
   <aside>
     <ul>
-      <% firstLevelDir.forEach(function(item){ -%>
-        <li><a class="<%= item===active ? 'active' : null %>"><%= item %></a>
+              <li><a class="">b</a>
           <ul>
-            <% dirs[item].title.forEach(function(it){ -%>
-              <li><a href="#"><%= it -%></a></li>
-            <% }) -%>
-          </ul>
+                          <li><a href="#">实现</a></li>
+                      </ul>
         </li>
-      <% }); -%>
-    </ul>
+              <li><a class="active">a</a>
+          <ul>
+                          <li><a href="#">helloworld</a></li>
+                      </ul>
+        </li>
+          </ul>
   </aside>
   <section>
     <div class="content">
       <div class="mdhtml">
-        <%- mdContent %>
+        <h1 id="helloworld">hello world</h1>
       </div>
     </div>
   </section>

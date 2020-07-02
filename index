@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs');
+const path = require('path');
 const {verifyExtname} = require('./tools/verification');
 const CONTANTS = require('./tools/contants');
 const MainGenerator = require('./mainGenerator');
@@ -29,9 +30,11 @@ const { template, name, output } = configJson;
 
 if (folders.length===1) {
   // var a = fs.statSync(folders[0])
+  // console.log(path.relative(__dirname, folders[0]));
+  
   const mg = new MainGenerator({folder: folders[0], template, name, output});
   mg.directoryParse();
   mg.build();
   // mg.toContents(template);
 }
-  console.log(__dirname,__filename);
+  // console.log(__dirname,__filename);

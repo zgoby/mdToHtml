@@ -26,11 +26,11 @@ class MainGenerator {
       // });
       this.firstLevelDir=this.pathFormat(temFirst);
       temFirst.forEach((item, index)=>{
-        const secondaryDir = fs.readdirSync(path.join(__dirname, this.folder,item))
+        const secondaryDir = fs.readdirSync(path.join(this.folder,item))
         this.dirs[this.firstLevelDir[index]] = {
           title: this.pathFormat(secondaryDir, true),
           originalDir: item,
-          mdPath: secondaryDir.map(it => path.join(__dirname, this.folder, item, it)),
+          mdPath: secondaryDir.map(it => path.join(this.folder, item, it)),
         };
       });
     }catch(err) {
